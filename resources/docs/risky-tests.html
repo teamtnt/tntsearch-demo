@@ -1,0 +1,98 @@
+<div class="titlepage"><div><div><h1 class="title">
+<a id="risky-tests"></a>Chapter 6. Risky Tests</h1></div></div></div>
+<p>
+    PHPUnit can perform the additional checks documented below while it executes
+    the tests.
+  </p>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="risky-tests.useless-tests"></a>Useless Tests</h2></div></div></div>
+<p>
+      PHPUnit can be strict about tests that do not test anything. This check
+      can be enabled by using the <code class="literal">--report-useless-tests</code>
+      option on the commandline or by setting
+      <code class="literal">beStrictAboutTestsThatDoNotTestAnything="true"</code> in
+      PHPUnit's XML configuration file.
+    </p>
+<p>
+      A test that does not perform an assertion will be marked as risky
+      when this check is enabled. Expectations on mock objects or annotations
+      such as <code class="code">@expectedException</code> count as an assertion.
+    </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="risky-tests.unintentionally-covered-code"></a>Unintentionally Covered Code</h2></div></div></div>
+<p>
+      PHPUnit can be strict about unintentionally covered code. This check
+      can be enabled by using the <code class="literal">--strict-coverage</code> option on
+      the commandline or by setting
+      <code class="literal">checkForUnintentionallyCoveredCode="true"</code> in PHPUnit's
+      XML configuration file.
+    </p>
+<p>
+      A test that is annotated with <code class="code">@covers</code> and executes code that
+      is not listed using a <code class="code">@covers</code> or <code class="code">@uses</code>
+      annotation will be marked as risky when this check is enabled.
+    </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="risky-tests.output-during-test-execution"></a>Output During Test Execution</h2></div></div></div>
+<p>
+      PHPUnit can be strict about output during tests. This check can be enabled
+      by using the <code class="literal">--disallow-test-output</code> option on the
+      commandline or by setting
+      <code class="literal">beStrictAboutOutputDuringTests="true"</code> in PHPUnit's XML
+      configuration file.
+    </p>
+<p>
+      A test that emits output, for instance by invoking <code class="code">print</code> in
+      either the test code or the tested code, will be marked as risky when this
+      check is enabled.
+    </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="risky-tests.test-execution-timeout"></a>Test Execution Timeout</h2></div></div></div>
+<p>
+      A time limit can be enforced for the execution of a test if the
+      <code class="literal">PHP_Invoker</code> package is installed and the
+      <code class="literal">pcntl</code> extension is available. The enforcing of this
+      time limit can be enabled by using the
+      <code class="literal">--enforce-time-limit</code> option on the commandline or by
+      setting <code class="literal">beStrictAboutTestSize="true"</code> in PHPUnit's XML
+      configuration file.
+    </p>
+<p>
+      A test annotated with <code class="literal">@large</code> will fail if it takes
+      longer than 60 seconds to execute. This timeout is configurable via the
+      <code class="literal">timeoutForLargeTests</code> attribute in the XML
+      configuration file.
+    </p>
+<p>
+      A test annotated with <code class="literal">@medium</code> will fail if it takes
+      longer than 10 seconds to execute. This timeout is configurable via the
+      <code class="literal">timeoutForMediumTests</code> attribute in the XML
+      configuration file.
+    </p>
+<p>
+      A test that is not annotated with <code class="literal">@medium</code> or
+      <code class="literal">@large</code> will be treated as if it were annotated with
+      <code class="literal">@small</code>. A small test will fail if it takes longer than
+      1 second to execute. This timeout is configurable via the
+      <code class="literal">timeoutForSmallTests</code> attribute in the XML configuration
+      file.
+    </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="risky-tests.global-state-manipulation"></a>Global State Manipulation</h2></div></div></div>
+<p>
+      PHPUnit can be strict about tests that manipulate global state. This check
+      can be enabled by using the <code class="literal">--strict-global-state</code>
+      option on the commandline or by setting
+      <code class="literal">beStrictAboutChangesToGlobalState="true"</code> in PHPUnit's
+      XML configuration file.
+    </p>
+</div>

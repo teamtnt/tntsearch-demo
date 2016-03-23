@@ -1,0 +1,338 @@
+<div class="titlepage"><div><div><h1 class="title">
+<a id="installation"></a>Chapter 1. Installing PHPUnit</h1></div></div></div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="installation.requirements"></a>Requirements</h2></div></div></div>
+<p>
+      PHPUnit 5.2 requires PHP 5.6; using the latest version of PHP is highly
+      recommended.
+    </p>
+<p>
+      PHPUnit requires the <a class="ulink" href="http://php.net/manual/en/dom.setup.php" target="_top">dom</a> and <a class="ulink" href="http://php.net/manual/en/json.installation.php" target="_top">json</a>
+      extensions, which are normally enabled by default.
+    </p>
+<p>
+      PHPUnit also requires the
+      <a class="ulink" href="http://php.net/manual/en/pcre.installation.php" target="_top">pcre</a>,
+      <a class="ulink" href="http://php.net/manual/en/reflection.installation.php" target="_top">reflection</a>,
+      and <a class="ulink" href="http://php.net/manual/en/spl.installation.php" target="_top">spl</a>
+      extensions. These standard extensions are enabled by default and cannot be
+      disabled without patching PHP's build system and/or C sources.
+    </p>
+<p>
+      The code coverage report feature requires the
+      <a class="ulink" href="http://xdebug.org/" target="_top">Xdebug</a> (2.2.1 or later) and
+      <a class="ulink" href="http://php.net/manual/en/tokenizer.installation.php" target="_top">tokenizer</a>
+      extensions.
+
+      Generating XML reports requires the
+      <a class="ulink" href="http://php.net/manual/en/xmlwriter.installation.php" target="_top">xmlwriter</a>
+      extension.
+    </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="installation.phar"></a>PHP Archive (PHAR)</h2></div></div></div>
+<p>
+      The easiest way to obtain PHPUnit is to download a <a class="ulink" href="http://php.net/phar" target="_top">PHP Archive (PHAR)</a> that has all required
+      (as well as some optional) dependencies of PHPUnit bundled in a single
+      file.
+    </p>
+<p>
+      The <a class="ulink" href="http://php.net/manual/en/phar.installation.php" target="_top">phar</a>
+      extension is required for using PHP Archives (PHAR).
+    </p>
+<p>
+      The
+      <a class="ulink" href="http://php.net/manual/en/openssl.installation.php" target="_top">openssl</a>
+      extension is required for using the <code class="literal">--self-update</code>
+      feature of the PHAR.
+    </p>
+<p>
+      If the <a class="ulink" href="http://suhosin.org/" target="_top">Suhosin</a> extension is
+      enabled, you need to allow execution of PHARs in your
+      <code class="literal">php.ini</code>:
+
+      </p>
+<pre class="screen">
+suhosin.executor.include.whitelist = phar
+</pre>
+<p>
+    </p>
+<div class="alert alert-info">
+<h3 class="title">Note</h3>
+<p>
+        To download from <code class="literal">https://phar.phpunit.de/</code> you need a
+        client with
+        <a class="ulink" href="http://en.wikipedia.org/wiki/Server_Name_Indication" target="_top">TLS/SNI
+        support</a>; e.g., wget 1.14 (or later).
+      </p>
+</div>
+<p>
+      To globally install the PHAR:
+    </p>
+<pre class="screen">
+<code class="prompt">$</code> <strong class="userinput"><code>wget https://phar.phpunit.de/phpunit.phar</code></strong>
+<code class="prompt">$</code> <strong class="userinput"><code>chmod +x phpunit.phar</code></strong>
+<code class="prompt">$</code> <strong class="userinput"><code>sudo mv phpunit.phar /usr/local/bin/phpunit</code></strong>
+<code class="prompt">$</code> <strong class="userinput"><code>phpunit --version</code></strong>
+<code class="computeroutput">PHPUnit x.y.z by Sebastian Bergmann and contributors.</code>
+</pre>
+<p>
+      You may also use the downloaded PHAR file directly:
+    </p>
+<pre class="screen">
+<code class="prompt">$</code> <strong class="userinput"><code>wget https://phar.phpunit.de/phpunit.phar</code></strong>
+<code class="prompt">$</code> <strong class="userinput"><code>php phpunit.phar --version</code></strong>
+<code class="computeroutput">PHPUnit x.y.z by Sebastian Bergmann and contributors.</code>
+</pre>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a id="installation.phar.windows"></a>Windows</h3></div></div></div>
+<p>
+        Globally installing the PHAR involves the same procedure as manually
+        <a class="ulink" href="https://getcomposer.org/doc/00-intro.md#installation-windows" target="_top">
+        installing Composer on Windows</a>:
+      </p>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem"><p>
+            Create a directory for PHP binaries; e.g., <code class="filename">C:\bin</code>
+          </p></li>
+<li class="listitem"><p>
+            Append <strong class="userinput"><code>;C:\bin</code></strong> to your <code class="varname">PATH</code>
+            environment variable
+            (<a class="ulink" href="http://stackoverflow.com/questions/6318156/adding-python-path-on-windows-7" target="_top">related help</a>)
+          </p></li>
+<li class="listitem"><p>
+            Download <a class="ulink" href="https://phar.phpunit.de/phpunit.phar" target="_top">https://phar.phpunit.de/phpunit.phar</a> and
+            save the file as <code class="filename">C:\bin\phpunit.phar</code>
+          </p></li>
+<li class="listitem"><p>
+            Open a command line (e.g.,
+            press <span class="keycap"><strong>Windows</strong></span>+<span class="keycap"><strong>R</strong></span>
+            » type <strong class="userinput"><code>cmd</code></strong>
+            » <span class="keycap"><strong>ENTER</strong></span>)
+          </p></li>
+<li class="listitem">
+<p>
+            Create a wrapping batch script (results in
+            <code class="filename">C:\bin\phpunit.cmd</code>):
+          </p>
+<pre class="screen">
+<code class="prompt">C:\Users\username&gt;</code> <strong class="userinput"><code>cd C:\bin</code></strong>
+<code class="prompt">C:\bin&gt;</code> <strong class="userinput"><code>echo @php "%~dp0phpunit.phar" %* &gt; phpunit.cmd</code></strong>
+<code class="prompt">C:\bin&gt;</code> <strong class="userinput"><code>exit</code></strong>
+</pre>
+</li>
+<li class="listitem">
+<p>
+            Open a new command line and confirm that you can execute PHPUnit
+            from any path:
+          </p>
+<pre class="screen">
+<code class="prompt">C:\Users\username&gt;</code> <strong class="userinput"><code>phpunit --version</code></strong>
+<code class="computeroutput">PHPUnit x.y.z by Sebastian Bergmann and contributors.</code>
+</pre>
+</li>
+</ol></div>
+<p>
+        For Cygwin and/or MingW32 (e.g., TortoiseGit) shell environments, you
+        may skip step 5. above, simply save the file as
+        <code class="filename">phpunit</code> (without <code class="filename">.phar</code>
+        extension), and make it executable via
+        <strong class="userinput"><code>chmod 775 phpunit</code></strong>.
+      </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a id="installation.phar.verification"></a>Verifying PHPUnit PHAR Releases</h3></div></div></div>
+<p>
+        All official releases of code distributed by the PHPUnit Project are
+        signed by the release manager for the release. PGP signatures and SHA1
+        hashes are available for verification on <a class="ulink" href="https://phar.phpunit.de/" target="_top">phar.phpunit.de</a>.
+      </p>
+<p>
+        The following example details how release verification works. We start
+        by downloading <code class="filename">phpunit.phar</code> as well as its
+        detached PGP signature <code class="filename">phpunit.phar.asc</code>:
+      </p>
+<pre class="screen"><strong class="userinput"><code>wget https://phar.phpunit.de/phpunit.phar</code></strong>
+<strong class="userinput"><code>wget https://phar.phpunit.de/phpunit.phar.asc</code></strong></pre>
+<p>
+        We want to verify PHPUnit's PHP Archive (<code class="filename">phpunit.phar</code>)
+        against its detached signature (<code class="filename">phpunit.phar.asc</code>):
+      </p>
+<pre class="screen"><strong class="userinput"><code>gpg phpunit.phar.asc</code></strong>
+gpg: Signature made Sat 19 Jul 2014 01:28:02 PM CEST using RSA key ID 6372C20A
+gpg: Can't check signature: public key not found</pre>
+<p>
+        We don't have the release manager's public key (<code class="literal">6372C20A</code>)
+        in our local system. In order to proceed with the verification we need
+        to retrieve the release manager's public key from a key server. One such
+        server is <code class="filename">pgp.uni-mainz.de</code>. The public key servers
+        are linked together, so you should be able to connect to any key server.
+      </p>
+<pre class="screen"><strong class="userinput"><code>gpg --keyserver pgp.uni-mainz.de --recv-keys 0x4AA394086372C20A</code></strong>
+gpg: requesting key 6372C20A from hkp server pgp.uni-mainz.de
+gpg: key 6372C20A: public key "Sebastian Bergmann &lt;sb@sebastian-bergmann.de&gt;" imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)</pre>
+<p>
+        Now we have received a public key for an entity known as "Sebastian
+        Bergmann &lt;sb@sebastian-bergmann.de&gt;". However, we have no way of
+        verifying this key was created by the person known as Sebastian
+        Bergmann. But, let's try to verify the release signature again.
+      </p>
+<pre class="screen"><strong class="userinput"><code>gpg phpunit.phar.asc</code></strong>
+gpg: Signature made Sat 19 Jul 2014 01:28:02 PM CEST using RSA key ID 6372C20A
+gpg: Good signature from "Sebastian Bergmann &lt;sb@sebastian-bergmann.de&gt;"
+gpg:                 aka "Sebastian Bergmann &lt;sebastian@php.net&gt;"
+gpg:                 aka "Sebastian Bergmann &lt;sebastian@thephp.cc&gt;"
+gpg:                 aka "Sebastian Bergmann &lt;sebastian@phpunit.de&gt;"
+gpg:                 aka "Sebastian Bergmann &lt;sebastian.bergmann@thephp.cc&gt;"
+gpg:                 aka "[jpeg image of size 40635]"
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: D840 6D0D 8294 7747 2937  7831 4AA3 9408 6372 C20A</pre>
+<p>
+        At this point, the signature is good, but we don't trust this key. A
+        good signature means that the file has not been tampered. However, due
+        to the nature of public key cryptography, you need to additionally
+        verify that key <code class="literal">6372C20A</code> was created by the real
+        Sebastian Bergmann.
+      </p>
+<p>
+        Any attacker can create a public key and upload it to the public key
+        servers. They can then create a malicious release signed by this fake
+        key. Then, if you tried to verify the signature of this corrupt release,
+        it would succeed because the key was not the "real" key. Therefore, you
+        need to validate the authenticity of this key. Validating the
+        authenticity of a public key, however, is outside the scope of this
+        documentation.
+      </p>
+<p>
+        It may be prudent to create a shell script to manage PHPUnit installation
+        that verifies the GnuPG signature before running your test suite. For
+        example:
+      </p>
+<pre class="screen">
+#!/usr/bin/env bash
+clean=1 # Delete phpunit.phar after the tests are complete?
+aftercmd="php phpunit.phar --bootstrap bootstrap.php src/tests"
+gpg --fingerprint D8406D0D82947747293778314AA394086372C20A
+if [ $? -ne 0 ]; then
+    echo -e "\033[33mDownloading PGP Public Key...\033[0m"
+    gpg --recv-keys D8406D0D82947747293778314AA394086372C20A
+    # Sebastian Bergmann &lt;sb@sebastian-bergmann.de&gt;
+    gpg --fingerprint D8406D0D82947747293778314AA394086372C20A
+    if [ $? -ne 0 ]; then
+        echo -e "\033[31mCould not download PGP public key for verification\033[0m"
+        exit
+    fi
+fi
+
+if [ "$clean" -eq 1 ]; then
+    # Let's clean them up, if they exist
+    if [ -f phpunit.phar ]; then
+        rm -f phpunit.phar
+    fi
+    if [ -f phpunit.phar.asc ]; then
+        rm -f phpunit.phar.asc
+    fi
+fi
+
+# Let's grab the latest release and its signature
+if [ ! -f phpunit.phar ]; then
+    wget https://phar.phpunit.de/phpunit.phar
+fi
+if [ ! -f phpunit.phar.asc ]; then
+    wget https://phar.phpunit.de/phpunit.phar.asc
+fi
+
+# Verify before running
+gpg --verify phpunit.phar.asc phpunit.phar
+if [ $? -eq 0 ]; then
+    echo
+    echo -e "\033[33mBegin Unit Testing\033[0m"
+    # Run the testing suite
+    `$after_cmd`
+    # Cleanup
+    if [ "$clean" -eq 1 ]; then
+        echo -e "\033[32mCleaning Up!\033[0m"
+        rm -f phpunit.phar
+        rm -f phpunit.phar.asc
+    fi
+else
+    echo
+    chmod -x phpunit.phar
+    mv phpunit.phar /tmp/bad-phpunit.phar
+    mv phpunit.phar.asc /tmp/bad-phpunit.phar.asc
+    echo -e "\033[31mSignature did not match! PHPUnit has been moved to /tmp/bad-phpunit.phar\033[0m"
+    exit 1
+fi
+      </pre>
+</div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="installation.composer"></a>Composer</h2></div></div></div>
+<p>
+      Simply add a dependency on <code class="literal">phpunit/phpunit</code> to your
+      project's <code class="literal">composer.json</code> file if you use
+      <a class="ulink" href="https://getcomposer.org/" target="_top">Composer</a> to manage the
+      dependencies of your project. Here is a minimal example of a
+      <code class="literal">composer.json</code> file that just defines a development-time
+      dependency on PHPUnit 5.0:
+    </p>
+<pre class="programlisting">{
+    "require-dev": {
+        "phpunit/phpunit": "5.0.*"
+    }
+}</pre>
+<p>
+      For a system-wide installation via Composer, you can run:
+    </p>
+<pre class="screen"><strong class="userinput"><code>composer global require "phpunit/phpunit=5.0.*"</code></strong></pre>
+<p>
+      Make sure you have <code class="literal">~/.composer/vendor/bin/</code> in your
+      path.
+    </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="installation.optional-packages"></a>Optional packages</h2></div></div></div>
+<p>
+      The following optional packages are available:
+    </p>
+<div class="variablelist"><dl class="variablelist">
+<dt><span class="term">
+          <code class="literal">PHP_Invoker</code>
+        </span></dt>
+<dd>
+<p>
+            A utility class for invoking callables with a timeout. This package is
+            required to enforce test timeouts in strict mode.
+          </p>
+<p>
+            This package is included in the PHAR distribution of PHPUnit. It can
+            be installed via Composer by adding the following
+            <code class="literal">"require-dev"</code> dependency:
+          </p>
+<pre class="screen"><strong class="userinput"><code>"phpunit/php-invoker": "*"</code></strong></pre>
+</dd>
+<dt><span class="term">
+          <code class="literal">DbUnit</code>
+        </span></dt>
+<dd>
+<p>
+            DbUnit port for PHP/PHPUnit to support database interaction testing.
+          </p>
+<p>
+            This package is included in the PHAR distribution of PHPUnit. It can
+            be installed via Composer by adding the following
+            <code class="literal">"require-dev"</code> dependency:
+          </p>
+<pre class="screen"><strong class="userinput"><code>"phpunit/dbunit": "&gt;=1.2"</code></strong></pre>
+</dd>
+</dl></div>
+</div>

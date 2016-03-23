@@ -1,0 +1,139 @@
+<div class="titlepage"><div><div><h1 class="title">
+<a id="organizing-tests"></a>Chapter 5. Organizing Tests</h1></div></div></div>
+<p>
+    <a id="idp2416" class="indexterm"></a>
+
+    One of the goals of PHPUnit is that tests
+    should be composable: we want to be able to run any number or combination
+    of tests together, for instance all tests for the whole project, or the
+    tests for all classes of a component that is part of the project, or just
+    the tests for a single class.
+  </p>
+<p>
+    PHPUnit supports different ways of organizing tests and composing them into
+    a test suite. This chapter shows the most commonly used approaches.
+  </p>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="organizing-tests.filesystem"></a>Composing a Test Suite Using the Filesystem</h2></div></div></div>
+<p>
+      Probably the easiest way to compose a test suite is to keep all test case
+      source files in a test directory. PHPUnit can automatically discover and
+      run the tests by recursively traversing the test directory.
+    </p>
+<p>
+      Lets take a look at the test suite of the
+      <a class="ulink" href="http://github.com/sebastianbergmann/money/" target="_top">sebastianbergmann/money</a>
+      library. Looking at this project's directory structure, we see that the
+      test case classes in the <code class="filename">tests</code> directory mirror the
+      package and class structure of the System Under Test (SUT) in the
+      <code class="filename">src</code> directory:
+    </p>
+<pre class="screen">src                                 tests
+`-- Currency.php                    `-- CurrencyTest.php
+`-- IntlFormatter.php               `-- IntlFormatterTest.php
+`-- Money.php                       `-- MoneyTest.php
+`-- autoload.php</pre>
+<p>
+      To run all tests for the library we just need to point the PHPUnit
+      command-line test runner to the test directory (see
+      <a class="ulink" href="https://phpunit.de/manual/5.2/en/textui.html" target="_top">Chapter 3</a>
+      for various, other command-line options):
+    </p>
+<pre class="screen"><strong class="userinput"><code>phpunit --bootstrap src/autoload.php tests</code></strong>
+PHPUnit 5.2.0 by Sebastian Bergmann.
+
+.................................
+
+Time: 636 ms, Memory: 3.50Mb
+
+OK (33 tests, 52 assertions)</pre>
+<div class="alert alert-info">
+<h3 class="title">Note</h3>
+<p>
+        If you point the PHPUnit command-line test runner to a directory it will
+        look for <code class="filename">*Test.php</code> files.
+      </p>
+</div>
+<p>
+      To run only the tests that are declared in the <code class="literal">CurrencyTest</code>
+      test case class in <code class="filename">tests/CurrencyTest.php</code> we can use
+      the following command:
+    </p>
+<pre class="screen"><strong class="userinput"><code>phpunit --bootstrap src/autoload.php tests/CurrencyTest</code></strong>
+PHPUnit 5.2.0 by Sebastian Bergmann.
+
+........
+
+Time: 280 ms, Memory: 2.75Mb
+
+OK (8 tests, 8 assertions)</pre>
+<p>
+      For more fine-grained control of which tests to run we can use the
+      <code class="literal">--filter</code> option:
+    </p>
+<pre class="screen"><strong class="userinput"><code>phpunit --bootstrap src/autoload.php --filter testObjectCanBeConstructedForValidConstructorArgument tests</code></strong>
+PHPUnit 5.2.0 by Sebastian Bergmann.
+
+..
+
+Time: 167 ms, Memory: 3.00Mb
+
+OK (2 test, 2 assertions)</pre>
+<div class="alert alert-info">
+<h3 class="title">Note</h3>
+<p>
+        A drawback of this approach is that we have no control over the order in
+        which the tests are run. This can lead to problems with regard to test
+        dependencies, see <a class="xref" href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.test-dependencies" title="Test Dependencies">the section called “Test Dependencies”</a>.
+        In the next section you will see how you can make the test execution
+        order explicit by using the XML configuration file.
+      </p>
+</div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a id="organizing-tests.xml-configuration"></a>Composing a Test Suite Using XML Configuration</h2></div></div></div>
+<a id="idp250976" class="indexterm"></a><p>
+      PHPUnit's XML configuration file (<a class="xref" href="appendixes.configuration.html" title="Appendix C. The XML Configuration File">Appendix C</a>)
+      can also be used to compose a test suite.
+      <a class="xref" href="organizing-tests.html#organizing-tests.xml-configuration.examples.phpunit.xml" title="Example 5.1: Composing a Test Suite Using XML Configuration">Example 5.1</a>
+      shows a minimal <code class="filename">phpunit.xml</code> file that will add all
+      <code class="literal">*Test</code> classes that are found in
+      <code class="filename">*Test.php</code> files when the <code class="filename">tests</code>
+      directory is recursively traversed.
+    </p>
+<div class="example">
+<a id="organizing-tests.xml-configuration.examples.phpunit.xml"></a><p class="title"><strong>Example 5.1: Composing a Test Suite Using XML Configuration</strong></p>
+<div class="example-contents"><pre class="programlisting">&lt;phpunit bootstrap="src/autoload.php"&gt;
+  &lt;testsuites&gt;
+    &lt;testsuite name="money"&gt;
+      &lt;directory&gt;tests&lt;/directory&gt;
+    &lt;/testsuite&gt;
+  &lt;/testsuites&gt;
+&lt;/phpunit&gt;</pre></div>
+</div>
+<br class="example-break"><p>
+      If <code class="filename">phpunit.xml</code> or
+      <code class="filename">phpunit.xml.dist</code> (in that order) exist in the
+      current working directory and <code class="literal">--configuration</code> is
+      <span class="emphasis"><em>not</em></span> used, the configuration will be automatically
+      read from that file.
+    </p>
+<p>
+      The order in which tests are executed can be made explicit:
+    </p>
+<div class="example">
+<a id="organizing-tests.xml-configuration.examples.phpunit.xml2"></a><p class="title"><strong>Example 5.2: Composing a Test Suite Using XML Configuration</strong></p>
+<div class="example-contents"><pre class="programlisting">&lt;phpunit bootstrap="src/autoload.php"&gt;
+  &lt;testsuites&gt;
+    &lt;testsuite name="money"&gt;
+      &lt;file&gt;tests/IntlFormatterTest.php&lt;/file&gt;
+      &lt;file&gt;tests/MoneyTest.php&lt;/file&gt;
+      &lt;file&gt;tests/CurrencyTest.php&lt;/file&gt;
+    &lt;/testsuite&gt;
+  &lt;/testsuites&gt;
+&lt;/phpunit&gt;</pre></div>
+</div>
+<br class="example-break">
+</div>
