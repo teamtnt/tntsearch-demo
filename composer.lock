@@ -2168,12 +2168,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/teamtnt/tntsearch.git",
-                "reference": "eb7c0738e74aeed88464ab42d276d88d18977fe5"
+                "reference": "6bf4d4b06e279da7f90135e67f13881e0ad7775c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teamtnt/tntsearch/zipball/eb7c0738e74aeed88464ab42d276d88d18977fe5",
-                "reference": "eb7c0738e74aeed88464ab42d276d88d18977fe5",
+                "url": "https://api.github.com/repos/teamtnt/tntsearch/zipball/6bf4d4b06e279da7f90135e67f13881e0ad7775c",
+                "reference": "6bf4d4b06e279da7f90135e67f13881e0ad7775c",
                 "shasum": ""
             },
             "require": {
@@ -2209,7 +2209,7 @@
                 "teamtnt",
                 "tntsearch"
             ],
-            "time": "2016-04-09 17:06:30"
+            "time": "2016-04-12 10:20:01"
         },
         {
             "name": "vlucas/phpdotenv",

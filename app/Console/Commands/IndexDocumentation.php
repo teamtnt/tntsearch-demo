@@ -32,7 +32,7 @@ class IndexDocumentation extends Command
 
         $config = [
             'driver'    => 'sqlite',
-            'database'  => base_path().'/database/seeds/tvdb.sqlite',
+            'database'  => base_path().'/database/database.sqlite',
             'username'  => '',
             'password'  => '',
             'storage'   => storage_path()
