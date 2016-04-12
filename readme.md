@@ -10,4 +10,4 @@ After that, optimize it:
 
 Don't forget to scrape the documentation and create and index
 
-    php artisan docs:index
+    php artisan tvshows:index
