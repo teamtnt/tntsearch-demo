@@ -1,11 +1,14 @@
 <?php namespace App\Http\Controllers;
 
 use App\Documentation;
-use Symfony\Component\DomCrawler\Crawler;
+use App\TvSerie;
+use App\Query;
 use Illuminate\Http\Request;
-use TeamTNT\TNTSearch;
+use Symfony\Component\DomCrawler\Crawler;
+use TeamTNT\TNTSearch\TNTSearch;
 
-class DocsController extends Controller {
+class DocsController extends Controller
+{
 
     /**
      * The documentation repository.
@@ -33,9 +36,9 @@ class DocsController extends Controller {
      */
     public function show($page = null)
     {
-        $page = str_replace(".html", "", $page);
+        $page    = str_replace(".html", "", $page);
         $content = $this->docs->get($page ?: 'installation');
-        
+
         if (is_null($content)) {
             abort(404);
         }
@@ -43,8 +46,8 @@ class DocsController extends Controller {
         $title = (new Crawler($content))->filterXPath('//h1');
 
         return view('docs', [
-            'title' => count($title) ? $title->text() : null,
-            'index' => $this->docs->getIndex(),
+            'title'   => count($title) ? $title->text() : null,
+            'index'   => $this->docs->getIndex(),
             'content' => $content,
         ]);
     }
@@ -52,44 +55,73 @@ class DocsController extends Controller {
     public function search(Request $request)
     {
         $this->tnt->loadConfig([
-            "storage"   => storage_path(),
-            "driver"    => 'filesystem',
+            "storage" => storage_path(),
         ]);
 
-        $this->tnt->selectIndex("docs");
+        $this->tnt->selectIndex("tvdb.index");
         $this->tnt->asYouType = true;
 
-        $results = $this->tnt->search($request->get('query'), $request->get('params')['hitsPerPage']);
+        try {
+            if($request->get('query'))
+            Query::insert([
+                'query' => $request->get('query'),
+                'hits'  => 1
+            ]);
+        } catch (\Exception $e) {
+            $q = Query::where('query', $request->get('query'))->first();
+            $q->hits = $q->hits + 1;
+            $q->save();
+        }
+
+        $results = $this->tnt->search($request->get('query'), 5);
 
         return $this->processResults($results, $request);
     }
 
     public function processResults($res, $request)
     {
-        $data = ['hits' => [], 'nbHits' => count($res)];
+        $data = ['hits' => [], 'time' => $res['execution time']];
 
-        foreach ($res as $result) {
-            $file = file_get_contents($result['path']);
-            $crawler = new Crawler;
-            $crawler->addHtmlContent($file);
-            $title = $crawler->filter('h1')->text();
+        if (count($res['ids']) == 0) {
+            return response()->json($data);
+        }
+        $order = "";
+        foreach ($res['ids'] as $index => $id) {
+            $order .= "WHEN $id THEN $index ";
+        }
 
-            $relevant = $this->tnt->snippet($request->get('query'), strip_tags($file));
+        $series = TvSerie::whereIn('id', $res['ids'])
+            ->orderByRaw("CASE id $order END")
+            ->get();
+
+        foreach ($series as $serie) {
+
+            $title    = $serie->series_name;
+            $relevant = $serie->overview;
+            $actors   = trim(str_replace("|", ', ', $serie->actors), ', ');
+            $genre    = trim(str_replace("|", ', ', $serie->genre), ', ');
+            if ($serie->image == 'noimage' || $serie->image == "" || !$serie->image) {
+                $serie->image = '/images/no_poster.png';
+            }
 
             $data['hits'][] = [
-                'link' => basename($result['path']),
-                '_highlightResult' => [
-                    'h1' => [
-                        'value' => $this->tnt->highlight($title, $request->get('query')),
-                    ],
-                    'content' => [
-                        'value' => $this->tnt->highlight($relevant, $request->get('query')),
-                    ]
-                ]
+                'link'    => "http://www.imdb.com/title/" . $serie->imdb_id,
+                'title'   => $this->tnt->highlight($title, $request->get('query'), 'em', ['wholeWord' => false]),
+                'img'     => $serie->image,
+                'content' => $serie->overview,
+                'genre'   => $genre,
+                'actors'  => $this->tnt->highlight($actors, $request->get('query')),
+                'runtime' => $serie->runtime,
             ];
         }
 
         return response()->json($data);
+    }
+
+    public function queries()
+    {
+        $queries = Query::orderBy('hits', 'DESC')->limit(1000)->get();
+        return view('queries', compact('queries'));
     }
 
 }

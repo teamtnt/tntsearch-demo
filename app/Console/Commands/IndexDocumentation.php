@@ -1,7 +1,7 @@
 <?php namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use TeamTNT\TNTSearch;
+use TeamTNT\TNTSearch\TNTSearch;
 use Config;
 use Goutte\Client;
 
@@ -12,14 +12,14 @@ class IndexDocumentation extends Command
      *
      * @var string
      */
-    protected $name = 'docs:index';
+    protected $name = 'tvshows:index';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Index all documentation with TNTSearch';
+    protected $description = 'Index all TV Shows with TNTSearch';
 
     /**
      * Execute the console command.
@@ -28,36 +28,23 @@ class IndexDocumentation extends Command
      */
     public function handle()
     {
-        $this->scrapePHPUnitDe();
-
         $tnt = new TNTSearch;
 
         $config = [
-            "storage"   => storage_path(),
-            "driver"    => 'filesystem',
-            "location"  => base_path('resources/docs/'),
-            "extension" => "html",
-            "exclude"   => ['index.html']
+            'driver'    => 'sqlite',
+            'database'  => base_path().'/database/seeds/tvdb.sqlite',
+            'username'  => '',
+            'password'  => '',
+            'storage'   => storage_path()
         ];
 
         $tnt->loadConfig($config);
-        $indexer = $tnt->createIndex('docs');
+        
+        $indexer = $tnt->createIndex('tvdb.index');
+        $indexer->query('select id, series_name, genre, actors from tvseries;');
+
         $indexer->run();
+        echo "real: ".(memory_get_peak_usage(true)/1024/1024)." MiB\n\n";
     }
 
-    public function scrapePHPUnitDe()
-    {
-        $client = new Client();
-        $crawler = $client->request('GET', 'https://phpunit.de/manual/current/en/index.html');
-        $toc = $crawler->filter('.toc');
-        file_put_contents(base_path('resources/docs/').'index.html', $toc->html());
-        
-        $crawler->filter('.toc > dt a')->each(function($node) use ($client) {
-            $href = $node->attr('href');
-            $this->info("Scraped: " . $href);
-            $crawler = $client->request('GET', $href);
-            $chapter = $crawler->filter('.col-md-8 .chapter, .col-md-8 .appendix')->html();
-            file_put_contents(base_path('resources/docs/').$href, $chapter);
-        });
-    }
 }

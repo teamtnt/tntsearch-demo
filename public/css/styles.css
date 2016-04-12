@@ -1,0 +1,143 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.demo-ribbon {
+  width: 100%;
+  height: 40vh;
+  background-color: #9E9E9E;
+  flex-shrink: 0;
+}
+em {
+  color: #FF4081;
+}
+
+.demo-main {
+  margin-top: -35vh;
+  flex-shrink: 0;
+}
+
+.intro {
+  padding: 25px;
+}
+
+.demo-header .mdl-layout__header-row {
+  padding-left: 40px;
+}
+
+.demo-container {
+  max-width: 1600px;
+  width: calc(100% - 16px);
+  margin: 0 auto;
+}
+
+.mdl-card p {
+  font-size: 13px;
+  text-align: justify;
+}
+
+.demo-footer {
+  padding-left: 40px;
+}
+
+.demo-footer .mdl-mini-footer--link-list a {
+  font-size: 13px;
+}
+.mdl-demo .mdl-card {
+  height: auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mdl-demo .mdl-card > * {
+  height: auto;
+}
+.mdl-demo.mdl-demo .mdl-card__supporting-text h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.mdl-demo .mdl-card__actions {
+  margin: 0;
+  padding: 4px 40px;
+  color: inherit;
+}
+.mdl-demo .mdl-card__actions a {
+  color: #00BCD4;
+  margin: 0;
+}
+.mdl-demo .mdl-card__actions a:hover,
+.mdl-demo .mdl-card__actions a:active {
+  color: inherit;
+  background-color: transparent;
+}
+.mdl-demo .mdl-card__supporting-text + .mdl-card__actions {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mdl-demo .mdl-layout__content section:not(:last-of-type) {
+  position: relative;
+  margin-bottom: 48px;
+}
+*,*:before,*:after
+{
+  box-sizing: inherit;
+  moz-box-sizing: inherit;
+  webkit-box-sizing: inherit;
+}
+
+.devsite-search-wrapper
+{
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 0 40px;
+  max-width: 872px;
+  position: relative;
+  transition: background .2s;
+  vertical-align: top;
+  width: calc(100% - 592px);
+}
+
+.devsite-search-image
+{
+  color: #000;
+  left: 24px;
+  position: absolute;
+  top: 6px;
+  transition: color .2s;
+}
+.devsite-search-image::before
+{
+  content: 'search';
+}
+
+input.devsite-search-field
+{
+  background: 0;
+  border-radius: 2px;
+  border: none;
+  flex: 1;
+  height: 36px;
+  margin: 0;
+  ms-flex: 1;
+  padding: 8px 8px 8px 72px;
+  transition: color .2s;
+  webkit-flex: 1;
+  width: 100%;
+  font-size: 14px;
+}

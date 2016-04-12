@@ -6,28 +6,9 @@
         </div>
         {{/_highlightResult.h1}}
 
-        <div class="sub-section">
-            {{#_highlightResult.h2}}
-            <div class="h2">
-                <span class="hash">#</span> {{{ _highlightResult.h2.value }}}
-            </div>
-            {{/_highlightResult.h2}}
-
-            {{#_highlightResult.h3}}
-            <div class="h3">
-                > {{{ _highlightResult.h3.value }}}
-            </div>
-            {{/_highlightResult.h3}}
-
-            {{#_highlightResult.h4}}
-            <div class="h4">
-                > {{{ _highlightResult.h4.value }}}
-            </div>
-            {{/_highlightResult.h4}}
-        </div>
-
         {{#_highlightResult.content}}
         <div class="content">
+            <img width="100" src="{{{ _highlightResult.img.value }}}" alt="">
             {{{ _highlightResult.content.value }}}
         </div>
         {{/_highlightResult.content}}

@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/queries', 'DocsController@queries');
 Route::get('/{page?}', 'DocsController@show');
 Route::post('/search', 'DocsController@search');
 
