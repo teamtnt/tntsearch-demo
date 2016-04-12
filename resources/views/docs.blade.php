@@ -7,7 +7,7 @@
  <h4>TNTSearch is a fully featured full text search engine written in PHP</h4>
  <p>This page is intended to show the powerfull search capabilities of the engine.
  You can try to search for any TV Show you can think of. The indexed database consists of 57000 shows
- and 130000 actors. It is posible to serach by series name, actor name or genre.</p>
+ and 130000 actors. It is posible to search by series name, actor name or genre.</p>
 
  <p >
      <img src="/images/relevancy.png" alt="">
