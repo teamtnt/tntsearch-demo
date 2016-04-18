@@ -6,6 +6,7 @@ use App\Query;
 use Illuminate\Http\Request;
 use Symfony\Component\DomCrawler\Crawler;
 use TeamTNT\TNTSearch\TNTSearch;
+use App\QueryExpansion;
 
 class DocsController extends Controller
 {
@@ -73,7 +74,9 @@ class DocsController extends Controller
             $q->save();
         }
 
-        $results = $this->tnt->search($request->get('query'), 5);
+        $query = QueryExpansion::expand($request->get('query'));
+
+        $results = $this->tnt->search($query, 5);
 
         return $this->processResults($results, $request);
     }
