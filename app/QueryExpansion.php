@@ -8,6 +8,7 @@ class QueryExpansion
         'house'          => 'house hugh',
         'friends'        => 'friends aniston',
         'game of'        => 'game of thrones',
+        'game'           => 'game of thrones',
         'breaking'       => 'breaking bad',
         'walker'         => 'walker texas',
         'nanny'          => 'nanny fran',
