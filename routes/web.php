@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('app');
 });
+
+
+Route::get('/queries', 'SearchController@queries');
+Route::post('/search', 'SearchController@search');

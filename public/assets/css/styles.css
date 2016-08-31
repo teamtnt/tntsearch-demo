@@ -275,7 +275,6 @@ select {
 .header h1.logo {
   margin-top: 0;
   margin-bottom: 0;
-  text-transform: uppercase;
   font-weight: bold;
   font-size: 28px;
   max-height: 50px;
@@ -459,10 +458,10 @@ select {
   background-color: #225742;
 }
 .promo .overview .btn-group li.ios-btn a {
-  background-image: url('../images/buttons/btn-app-store.png');
+  background-image: url('../images/buttons/btn-wordpress.png');
 }
 .promo .overview .btn-group li.android-btn a {
-  background-image: url('../images/buttons/btn-google-play.png');
+  background-image: url('../images/buttons/btn-magento.png');
 }
 .promo .overview .note {
   position: relative;

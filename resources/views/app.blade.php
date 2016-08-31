@@ -4,7 +4,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Responsive website template for mobile app</title>
+    <title>TNTSearch - A fully featured full text search engine written in PHP</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,8 +35,8 @@
         <div class="container">            
             <h1 class="logo pull-left">
                 <a class="scrollto" href="#promo">
-                    <img id="logo-image" class="logo-image" src="assets/images/logo/logo.png" alt="Logo">
-                    <span class="logo-title">Delta</span>
+                    <img id="logo-image" class="logo-image" src="assets/images/logo/tntsearch-logo.png" alt="Logo">
+                    <span class="logo-title">TNTSearch</span>
                 </a>
             </h1><!--//logo-->              
             <nav id="main-nav" class="main-nav navbar-right" role="navigation">
@@ -52,11 +52,9 @@
                     <ul class="nav navbar-nav">
                         <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
                         <li class="nav-item"><a class="scrollto" href="#features">Features</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#how">How it works</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#faq">FAQ</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#story">Story</a></li>
-                        <li class="nav-item"><a class="scrollto" href="#pricing">Pricing</a></li>
-                        <li class="nav-item last"><a class="scrollto" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#how">Showcase</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#pricing">Docs</a></li>
+                        <li class="nav-item last"><a class="scrollto" href="#contact">Github</a></li>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
             </nav><!--//main-nav-->           
@@ -68,12 +66,12 @@
         <div class="container">
             <div class="row">
                 <div class="overview col-md-8 col-sm-12 col-xs-12">
-                    <h2 class="title">Delta helps you promote your mobile app</h2>
+                    <h2 class="title">A fully featured full text search engine written in PHP</h2>
                     <ul class="summary">
-                        <li>Showcase and promote your mobile app to the web</li>
-                        <li>Demonstrate how the app works</li>
-                        <li>Provide answers to common questions</li>
-                        <li>Tell the world about the story behind the app</li>
+                        <li>Zero configuration without any dependencies</li>
+                        <li>Fast and relevant results</li>
+                        <li>Works on all platforms</li>
+                        <li>Developer friendly and framework agnostic</li>
                     </ul>
                     <div class="download-area">
                         <ul class="btn-group list-inline">
@@ -81,7 +79,7 @@
                             <li class="android-btn"><a href="#">Get it from Google Play</a></li>
                         </ul>
                         <div class="note text-center">
-                            <p>30% OFF - Now only $0.99<br />Offer ends 31st March</p>
+                            <p>30% OFF - Now only $39<br />Offer valid for pre-orders</p>
                             <span class="left-arrow"></span>
                             <span class="right-arrow"></span>
                         </div><!--//note-->
@@ -200,111 +198,35 @@
     <section id="how" class="how section has-pattern">
         <div class="container">
             <div class="row">
-                <div class="content col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6 text-center">
-                    <h2 class="title">How it works</h2>
-                    <p class="intro">You can <a href="http://blog.sensortower.com/blog/2013/07/19/3-ways-to-create-a-great-ios-app-demo-video-without-breaking-the-bank/" target="_blank">create a video demo</a> for your app to demonstrate how the app works. You can also <a href="http://www.qrstuff.com/" target="_blank">generate QR codes</a> for the app download links.</p>
+                <div class="content col-md-6 col-sm-6 col-xs-12 text-center">
+                    <h2 class="title">Try it out</h2>
+                    <p class="intro">Let us show you the powerfull search capabilities of the engine. The indexed database consists of <a href="#">57000</a> shows and <a href="#">130000</a> actors.</p>
                     <div class="qr-codes hidden-sm hidden-xs">
                         <div class="note">
-                            <p>Scan the QR codes</p>
+                            <p>Search for your favorite TV Show</p>
                             <span class="left-arrow"></span>
                             <span class="right-arrow"></span>
                         </div><!--//note-->
                         <div class="row">
-                            <div class="item col-md-6 col-sm-6">
-                                <img src="assets/images/qrcodes/qr-1.png" alt="" />
-                                <p>Download for iOS</p>
-                            </div><!--//item-->
-                            <div class="item col-md-6 col-sm-6">
-                                <img src="assets/images/qrcodes/qr-1.png" alt="" />
-                                <p>Download for Andriod</p>
+                            <div class="item col-md-12 col-sm-6">
+                                <input type="text" class="form-control">
                             </div><!--//item-->
                         </div>                    
                     </div><!--//qr-codes-->
                 </div><!--//content-->
-                <div id="video-container" class="video-container col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
-                    <iframe src="//player.vimeo.com/video/87044590" width="570" height="320" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                </div><!--//video-->
+                <div class="content col-md-6 col-sm-6 col-xs-12 text-center">
+                    <div class="row">
+                        <div class="col-md-4">Movie Title</div>
+                        <div class="col-md-4">Movie Title</div>
+                        <div class="col-md-4">Movie Title</div>
+                        <div class="col-md-4">Movie Title</div>
+                        <div class="col-md-4">Movie Title</div>
+                        <div class="col-md-4">Movie Title</div>
+                    </div>
+                </div>
             </div><!--//row-->
         </div><!--//container-->
     </section><!--//how-->
-    
-    <!-- ******FAQ****** --> 
-    <section id="faq" class="faq section">
-        <div class="container">
-            <div class="row">
-                <h2 class="title text-center">Frequently Asked Questions</h2>
-                <div class="faq-col col-md-6 col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h3 class="question"><i class="fa fa-question-circle"></i>How can I  ipsum dolor sit amet?</h3>
-                        <p class="answer">Proin scelerisque magna ac eros aliquam aliquam id in lacus. Morbi quam tortor, consequat at orci non, vulputate volutpat libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sagittis laoreet urna eu ornare. Aenean tempor, leo vel eleifend porttitor, nibh libero ultricies est, sit amet ultricies magna enim et turpis. Donec aliquam velit eu sollicitudin cursus.</p>
-                    </div><!--//item-->
-                    <div class="item">
-                        <h3 class="question"><i class="fa fa-question-circle"></i>What is the ipsum dolor sit amet quam tortor?</h3>
-                        <p class="answer">Proin scelerisque magna ac eros aliquam aliquam id in lacus. Morbi quam tortor, consequat at orci non, vulputate volutpat libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sagittis laoreet urna eu ornare.</p>
-                    </div><!--//item-->
-                    <div class="item">
-                        <h3 class="question"><i class="fa fa-question-circle"></i>What's the differences between ipsum and dolor sit amet?</h3>
-                        <p class="answer">Proin scelerisque magna ac eros aliquam aliquam id in lacus. Morbi quam tortor, consequat at orci non, vulputate volutpat libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sagittis laoreet urna eu ornare. Aenean tempor, leo vel eleifend porttitor. Aenean tempor, leo vel eleifend porttitor, nibh libero ultricies est.</p>
-                    </div><!--//item-->
-                </div><!--//faq-col-->
-                <div class="faq-col col-md-6 col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h3 class="question"><i class="fa fa-question-circle"></i>How does the morbi quam tortor work?</h3>
-                        <p class="answer">Proin scelerisque magna ac eros aliquam aliquam id in lacus. Morbi quam tortor, consequat at orci non, vulputate volutpat libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sagittis laoreet urna eu ornare.Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sagittis laoreet urna eu ornare. Aenean tempor, leo vel eleifend porttitor, nibh libero ultricies est, sit amet ultricies magna enim et turpis. Donec aliquam velit eu sollicitudin cursus.</p>
-                    </div><!--//item-->
-                    <div class="item">
-                        <h3 class="question"><i class="fa fa-question-circle"></i>Can I ipsum dolor sit amet nascetur ridiculus?</h3>
-                        <p class="answer">Proin scelerisque magna ac eros aliquam aliquam id in lacus. Morbi quam tortor, consequat at orci non, vulputate volutpat libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sagittis laoreet urna eu ornare.</p>
-                    </div><!--//item-->
-                    <div class="item">
-                        <h3 class="question"><i class="fa fa-question-circle"></i>How can I proin scelerisque magna?</h3>
-                        <p class="answer">Aenean tempor, leo vel eleifend porttitor, nibh libero ultricies est, sit amet ultricies magna enim et turpis. Donec aliquam velit eu sollicitudin cursus.Proin scelerisque magna ac eros aliquam aliquam id in lacus. Morbi quam tortor, consequat at orci non, vulputate volutpat libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sagittis laoreet urna eu ornare. </p>
-                    </div><!--//item-->
-                </div><!--//faq-col-->
-            </div><!--//row-->
-            <div class="more text-center">
-                <h4 class="title">More questions?</h4>
-                <a class="btn btn-lg btn-theme scrollto" href="#contact">Get in touch<i class="fa fa-arrow-circle-o-down"></i></a>
-            </div>
-        </div><!--//container-->
-    </section><!--//faq-->
-    
-    <!-- ******STORY****** --> 
-    <section id="story" class="story section has-pattern">
-        <div class="container">
-            <div class="row">
-                <div class="content col-md-6 col-sm-6 col-xs-12 text-center">
-                    <h2 class="title">Story behind the app</h2>
-                    <p>Aliquam euismod vehicula lacus, non congue ante pulvinar a. Nunc eu posuere risus, ut condimentum ante. Suspendisse at turpis sollicitudin odio congue lobortis vitae nec nisi. Nullam sodales at libero in lacinia. Nullam vel nibh pulvinar, interdum purus tristique, iaculis turpis. Integer imperdiet tincidunt erat vel gravida. Suspendisse tincidunt orci sed leo euismod, quis ultrices ipsum lobortis. Sed viverra dui et elit accumsan accumsan. Donec lorem turpis, iaculis ac fermentum nec, dignissim sed nisi. Nunc condimentum turpis arcu, eu aliquet lorem eleifend ut. Integer at lorem nec diam elementum convallis vel vel nulla.</p>
-                    <p>Nullam vel nibh pulvinar, interdum purus tristique, iaculis turpis. Integer imperdiet tincidunt erat vel gravida. eleifend ut. Integer at lorem nec diam elementum convallis vel vel nulla.</p>
-                </div><!--//content-->
-                <div class="team col-md-5 col-sm-5 col-md-offset-1 col-sm-offset-1 col-xs-12">
-                    <div class="row">
-                        <div class="member col-md-6 text-center">
-                            <img class="img-rounded" src="assets/images/team/member-1.png" alt="" />
-                            <p class="name">James Norton</p>
-                            <p class="title">Lead Developer</p>
-                            <ul class="connect list-inline">
-                                <li><a href="#" ><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" ><i class="fa fa-linkedin"></i></a></li>
-                                <li class="row-end"><a href="#" ><i class="fa fa-github"></i></a></li>         
-                            </ul>
-                        </div><!--//member-->
-                        <div class="member col-md-6 text-center">
-                            <img class="img-rounded" src="assets/images/team/member-2.png" alt="" />
-                            <p class="name">Steve Thomson</p>
-                            <p class="title">UI/UX Designer</p>
-                            <ul class="connect list-inline">
-                                <li><a href="#" ><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" ><i class="fa fa-linkedin"></i></a></li>
-                                <li class="row-end"><a href="#" ><i class="fa fa-dribbble"></i></a></li>         
-                            </ul>
-                        </div><!--//member-->
-                    </div>
-                </div><!--//team-->
-            </div><!--//row-->
-        </div><!--//container-->
-    </section><!--//story-->
     
     <!-- ******TESTIMONIALS****** --> 
     <section id="testimonials" class="testimonials section">
@@ -390,7 +312,7 @@
                 </div><!--//item-->
             </div>
             <div class="press row text-center">
-                <h3 class="note">Also featured in...</h3>
+                <h3 class="note">Our Sponsors</h3>
                 <ul class="col-md-12 list-inline">
                     <li><a href="#"><img class="img-responsive" src="assets/images/press/press-1.png" alt="" /></a></li>
                     <li><a href="#"><img class="img-responsive" src="assets/images/press/press-2.png" alt="" /></a></li>
@@ -401,79 +323,6 @@
             </div><!--//row-->
         </div><!--//container-->
     </section><!--//Testimonials-->
-    
-    <!-- ******Pricing****** --> 
-    <section id="pricing" class="pricing section has-pattern">
-        <div class="container">
-             <div class="price-cols row">
-                <h2 class="title text-center">Choose your plan today</h2>
-                <div class="items-wrapper col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-                    <div class="item price-1 col-md-4 col-sm-4 col-xs-12 text-center">
-                        <div class="item-inner">
-                            <div class="heading">
-                            <h3 class="title">Personal</h3>
-                                <p class="price-figure"><span class="price-figure-inner"><span class="currency">$</span><span class="number">5</span><br /><span class="unit"> per month</span></span></p>
-                            </div>
-                            <div class="content">
-                                <ul class="list-unstyled feature-list">
-                                    <li><i class="fa fa-check"></i>1 user</li>
-                                    <li><i class="fa fa-check"></i>10 GB storage</li>
-                                    <li class="disabled"><i class="fa fa-times"></i>Email priority support</li>
-                                    <li class="disabled"><i class="fa fa-times"></i>Free update</li>
-                                    <li class="disabled"><i class="fa fa-times"></i>24/7 support</li>
-                                </ul>
-                                <a class="btn btn-theme btn-block" href="#">Sign Up</a>
-   
-                            </div><!--//content-->
-                        </div><!--//item-inner-->
-                    </div><!--//item--> 
-                    
-                    <div class="item price-2 col-md-4 col-sm-4 col-xs-12 text-center best-buy">
-                        <div class="item-inner">
-                            <div class="heading">
-                            <h3 class="title">Professional</h3>
-                                <p class="price-figure"><span class="price-figure-inner"><span class="currency">$</span><span class="number">10</span><br /><span class="unit">per month</span></span></p>
-                            </div>
-                            <div class="content">
-                                <ul class="list-unstyled feature-list">
-                                    <li><i class="fa fa-check"></i>10 users</li>
-                                    <li><i class="fa fa-check"></i>30 GB storage</li>
-                                    <li><i class="fa fa-check"></i>Email priority support</li>
-                                    <li><i class="fa fa-check"></i>Free update</li>
-                                    <li class="disabled"><i class="fa fa-times"></i>24/7 support</li>
-                                    
-                                </ul>
-                                <a class="btn btn-theme btn-block" href="#">Sign Up</a>
-                            </div><!--//content-->
-                            <div class="ribbon">
-                                <div class="text">Popular</div>
-                            </div><!--//ribbon-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->  
-                    
-                    <div class="item price-3 col-md-4 col-sm-4 col-xs-12 text-center">
-                        <div class="item-inner">
-                            <div class="heading">
-                                <h3 class="title">Business</h3>
-                                <p class="price-figure"><span class="price-figure-inner"><span class="currency">$</span><span class="number">25</span><br /><span class="unit">per month</span></span></p>
-                            </div>
-                            <div class="content">
-                                <ul class="list-unstyled feature-list">
-                                    <li><i class="fa fa-check"></i>Unlimited user</li>
-                                    <li><i class="fa fa-check"></i>100 GB storage</li>
-                                    <li><i class="fa fa-check"></i>Email priority support</li>
-                                    <li><i class="fa fa-check"></i>Free update</li>
-                                    <li><i class="fa fa-check"></i>24/7 support</li>                                  
-                                </ul>
-                                <a class="btn btn-theme btn-block" href="#">Sign Up</a>
-                                
-                            </div><!--//content-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->  
-                </div><!--//items-wrapper-->                   
-            </div><!--//row-->
-        </div><!--//container-->
-    </section><!--//pricing-->
     
     <!-- ******CONTACT****** --> 
     <section id="contact" class="contact section has-pattern">
@@ -487,25 +336,6 @@
                         <li><i class="fa fa-phone-square"></i>0800 123 456</li>
                     </ul>
                 </div>
-            </div><!--//row-->
-            <div class="row text-center">
-                <div class="contact-form col-md-6 col-sm-12 col-xs-12 col-md-offset-3">                            
-                    <form class="form">                
-                        <div class="form-group name">
-                            <label class="sr-only" for="name">Name</label>
-                            <input id="name" type="text" class="form-control" placeholder="Name:">
-                        </div><!--//form-group-->
-                        <div class="form-group email">
-                            <label class="sr-only" for="email">Email</label>
-                            <input id="email" type="email" class="form-control" placeholder="Email:">
-                        </div><!--//form-group-->
-                        <div class="form-group message">
-                            <label class="sr-only" for="message">Message</label>
-                            <textarea id="message" class="form-control" rows="6" placeholder="Message:"></textarea>
-                        </div><!--//form-group-->
-                        <button type="submit" class="btn btn-lg btn-theme">Send Message</button>
-                    </form><!--//form-->                 
-                </div><!--//contact-form-->
             </div><!--//row-->
             <div class="text-center">
                  <ul class="social-icons list-inline">
@@ -521,7 +351,7 @@
     <!-- ******FOOTER****** --> 
     <footer class="footer">
         <div class="container">
-            <small class="copyright pull-left">Copyright &copy; 2015 <a href="http://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a></small>
+            <small class="copyright pull-left">Copyright &copy; 2016 <a href="http://tnt.studio" target="_blank">TNT Studio</a></small>
             <ul class="links list-inline">
                 <li><a href="#">Terms</a></li>
                 <li><a href="#">Privacy</a></li>
@@ -563,43 +393,6 @@
         </div><!--//modal-dialog-->
     </div><!--//modal-->
     
-    <!-- *****CONFIGURE STYLE (Remove on production site)****** -->
-    <div class="config-wrapper">
-        <div class="config-wrapper-inner">
-            <a id="config-trigger" class="config-trigger" href="#"><i class="fa fa-cog"></i></a>
-            <div id="config-panel" class="config-panel">
-                <h5>Choose Colour</h5>
-                <ul id="color-options" class="list-unstyled list-inline">
-                    <li class="theme-1 active" ><a data-style="assets/css/styles.css" data-logo="assets/images/logo/logo.png" href="#"></a></li>
-                    <li class="theme-2"><a data-style="assets/css/styles-2.css" data-logo="assets/images/logo/logo-2.png" href="#"></a></li>
-                    <li class="theme-3"><a data-style="assets/css/styles-3.css" data-logo="assets/images/logo/logo-3.png" href="#"></a></li>
-                    <li class="theme-4"><a data-style="assets/css/styles-4.css" data-logo="assets/images/logo/logo-4.png" href="#"></a></li>
-                    
-                    <li class="theme-5"><a data-style="assets/css/styles-5.css" data-logo="assets/images/logo/logo-5.png" href="#"></a></li> 
-                    
-                    <li class="theme-6"><a data-style="assets/css/styles-6.css" data-logo="assets/images/logo/logo-6.png" href="#"></a></li>
-                    <li class="theme-7"><a data-style="assets/css/styles-7.css" data-logo="assets/images/logo/logo-7.png" href="#"></a></li>
-                    <li class="theme-8"><a data-style="assets/css/styles-8.css" data-logo="assets/images/logo/logo-8.png" href="#"></a></li>
-                    
-                    <li class="theme-9"><a data-style="assets/css/styles-9.css" data-logo="assets/images/logo/logo-9.png" href="#"></a></li>
-                    <li class="theme-10"><a data-style="assets/css/styles-10.css" data-logo="assets/images/logo/logo-10.png" href="#"></a></li>
-                    
-                </ul><!--//color-options-->
-                <h5 class="device-title">Choose Device</h5>
-                <ul class="list-unstyled">
-                    <li><a href="index.html">iPhone Black</a></li>
-                    <li><a href="iphone-white.html">iPhone White</a></li>
-                    <li><a href="ipad-white.html">iPad White</a></li>
-                    <li><a href="ipad-black.html">iPad Black</a></li>
-                    <li><a href="android.html">Android</a></li>
-                    <li><a href="iphone-landscape.html">iPhone Landscape <span class="label label-success">New</span></a></li>
-                    <li><a href="android-landscape.html">Android Landscape <span class="label label-success">New</span></a></li>
-                </ul>
-                <a id="config-close" class="close" href="#"><i class="fa fa-times-circle"></i></a>
-            </div><!--//configure-panel-->
-        </div><!--//config-wrapper-inner-->
-    </div><!--//config-wrapper-->
-     
     <!-- Javascript -->          
     <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="assets/plugins/isMobile/isMobile.min.js"></script>       
