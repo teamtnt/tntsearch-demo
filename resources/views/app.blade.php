@@ -209,19 +209,35 @@
                         </div><!--//note-->
                         <div class="row">
                             <div class="item col-md-12 col-sm-6">
-                                <input type="text" class="form-control">
+                                <input v-model="searchInput" v-on:input="search" type="text" class="form-control">
                             </div><!--//item-->
                         </div>                    
                     </div><!--//qr-codes-->
                 </div><!--//content-->
                 <div class="content col-md-6 col-sm-6 col-xs-12 text-center">
+{{--                     <div  v-for="show in shows">
+                        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                            <header>
+                              <img class="cover" width="155" v-bind:src="show.img" alt="">
+                            </header>
+                            <div class="mdl-card mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                              <div class="mdl-card__supporting-text">
+                                <h4>@{{ show.title }}</h4>
+                                <p><img src="/images/pg.png" alt=""> @{{show.runtime}} min   -   @{{show.genre}}</p>
+                                <p class="uk-text-justify">@{{show.content}}</p>
+                                <p><b>Stars:</b> @{{show.actors}}</p>
+                              </div>
+                              <div class="mdl-card__actions">
+                                <a target="_blank" class="mdl-button" href="@{{show.link}}">View on IMDB</a>
+                              </div>
+                            </div>
+                        </section>
+                        <br>
+                    </div> --}}
                     <div class="row">
-                        <div class="col-md-4">Movie Title</div>
-                        <div class="col-md-4">Movie Title</div>
-                        <div class="col-md-4">Movie Title</div>
-                        <div class="col-md-4">Movie Title</div>
-                        <div class="col-md-4">Movie Title</div>
-                        <div class="col-md-4">Movie Title</div>
+                        <div class="col-md-4" v-for="show in shows">
+                            <img class="cover img-responsive" v-bind:src="show.img" alt="">
+                        </div>
                     </div>
                 </div>
             </div><!--//row-->
@@ -394,19 +410,8 @@
     </div><!--//modal-->
     
     <!-- Javascript -->          
-    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/isMobile/isMobile.min.js"></script>       
-    <script type="text/javascript" src="assets/plugins/jquery.easing.1.3.js"></script>   
-    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
-    <script type="text/javascript" src="assets/plugins/jquery-inview/jquery.inview.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/FitVids/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>    
-    <script type="text/javascript" src="assets/plugins/jquery-placeholder/jquery.placeholder.js"></script>
-    <script type="text/javascript" src="assets/plugins/flexslider/jquery.flexslider-min.js"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-    <!--[if !IE]>--> 
-    <script type="text/javascript" src="assets/js/animations.js"></script> 
-    <!--<![endif]-->         
+
+    <script type="text/javascript" src="/js/app.js"></script>
+       
 </body>
 </html> 

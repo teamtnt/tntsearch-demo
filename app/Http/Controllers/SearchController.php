@@ -53,7 +53,7 @@ class SearchController extends Controller
 
         $query = QueryExpansion::expand($request->get('query'));
 
-        $results = $this->tnt->search($query, 5);
+        $results = $this->tnt->search($query, 6);
 
         return $this->processResults($results, $request);
     }
@@ -81,7 +81,7 @@ class SearchController extends Controller
             $actors   = trim(str_replace("|", ', ', $serie->actors), ', ');
             $genre    = trim(str_replace("|", ', ', $serie->genre), ', ');
             if ($serie->image == 'noimage' || $serie->image == "" || !$serie->image) {
-                $serie->image = '/images/no_poster.png';
+                $serie->image = '/assets/images/no_poster.png';
             }
 
             $data['hits'][] = [
