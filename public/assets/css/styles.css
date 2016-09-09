@@ -1453,6 +1453,9 @@ select {
 .search-image {
   margin-top: 60px;
 }
+.search-image img {
+  margin: 0 auto;
+}
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
   .navbar-toggle {

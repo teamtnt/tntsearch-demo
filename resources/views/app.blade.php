@@ -75,8 +75,8 @@
                     </ul>
                     <div class="download-area">
                         <ul class="btn-group list-inline">
-                            <li class="ios-btn"><a href="#">Download from the App Store</a></li>
-                            <li class="android-btn"><a href="#">Get it from Google Play</a></li>
+                            <li class="ios-btn"><a href="#" onclick="ga('send', 'event', 'wordpress-button', 'click');">Available for Wordpress</a></li>
+                            <li class="android-btn"><a href="#" onclick="ga('send', 'event', 'magento-button', 'click');">Available for Magento</a></li>
                         </ul>
                         <div class="note text-center">
                             <p>30% OFF - Now only $39<br />Offer valid for pre-orders</p>
@@ -87,7 +87,7 @@
                 </div><!--//overview-->
                 
                 <!--// iPhone starts -->
-                <div class="search-image col-md-4 col-sm-12 col-xs-12 ">
+                <div class="search-image text-center col-md-4 col-sm-12 col-xs-12 ">
                     <img src="/assets/images/search-3d.png" class="img-responsive" alt="TNT Search Cloud">                 
                 </div><!--//iphone-->  
                 <!--// iPhone ends -->
