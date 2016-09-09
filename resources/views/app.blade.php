@@ -312,13 +312,12 @@
                 </div><!--//item-->
             </div>
             <div class="press row text-center">
-                <h3 class="note">Our Sponsors</h3>
+                <h3 class="note">TNTSearch is used by:</h3>
                 <ul class="col-md-12 list-inline">
-                    <li><a href="#"><img class="img-responsive" src="assets/images/press/press-1.png" alt="" /></a></li>
-                    <li><a href="#"><img class="img-responsive" src="assets/images/press/press-2.png" alt="" /></a></li>
-                    <li><a href="#"><img class="img-responsive" src="assets/images/press/press-3.png" alt="" /></a></li>
-                    <li><a href="#"><img class="img-responsive" src="assets/images/press/press-4.png" alt="" /></a></li>
-                    <li class="last"><a href="#"><img class="img-responsive" src="assets/images/press/press-5.png" alt="" /></a></li>
+                    <li><a href="http://canvas.toddaustin.io/"><img class="img-responsive usedby" src="assets/images/usedby/canvas.gif" alt="" /></a></li>
+                    <li><a href="https://pyrocms.com/"><img class="img-responsive usedby" src="assets/images/usedby/pyro.png" alt="" /></a></li>
+                    <li><a href="https://www.primeros.de/"><img class="img-responsive usedby" src="assets/images/usedby/primeros.png" alt="" /></a></li>
+                    <li class="last"><a href="https://www.luxify.com/"><img class="img-responsive usedby" src="assets/images/usedby/luxify.png" alt="" /></a></li>
                 </ul>
             </div><!--//row-->
         </div><!--//container-->
