@@ -87,24 +87,8 @@
                 </div><!--//overview-->
                 
                 <!--// iPhone starts -->
-                <div class="phone iphone iphone-white col-md-4 col-sm-12 col-xs-12 ">
-                    <div class="iphone-holder phone-holder">
-                        <div class="iphone-holder-inner">
-                            <div class="slider flexslider">
-                                <ul class="slides">
-                                    <li>
-                                        <img src="assets/images/iphone/iphone-slide-1.png"  alt="" />
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/iphone/iphone-slide-2.png"  alt="" />
-                                    </li>
-                                    <li>
-                                        <img src="assets/images/iphone/iphone-slide-3.png"  alt="" />
-                                    </li>
-                                </ul><!--//slides-->
-                            </div><!--//flexslider-->   
-                        </div><!--//iphone-holder-inner-->                    
-                    </div><!--//iphone-holder-->                   
+                <div class="search-image col-md-4 col-sm-12 col-xs-12 ">
+                    <img src="/assets/images/search-3d.png" class="img-responsive" alt="TNT Search Cloud">                 
                 </div><!--//iphone-->  
                 <!--// iPhone ends -->
                                            

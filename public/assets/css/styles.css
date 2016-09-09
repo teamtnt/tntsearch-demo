@@ -1450,6 +1450,9 @@ select {
 .config-panel .close .fa {
   color: #fff;
 }
+.search-image {
+  margin-top: 60px;
+}
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
   .navbar-toggle {
