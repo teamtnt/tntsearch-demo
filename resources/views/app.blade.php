@@ -88,7 +88,7 @@
                 
                 <!--// iPhone starts -->
                 <div class="search-image text-center col-md-4 col-sm-12 col-xs-12 ">
-                    <img src="/assets/images/search-3d.png" class="img-responsive" alt="TNT Search Cloud">                 
+                    <img src="/assets/images/search.png" class="img-responsive" alt="TNT Search Cloud">                 
                 </div><!--//iphone-->  
                 <!--// iPhone ends -->
                                            
