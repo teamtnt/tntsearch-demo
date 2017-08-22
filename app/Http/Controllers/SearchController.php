@@ -53,7 +53,7 @@ class SearchController extends Controller
 
         $query = QueryExpansion::expand($request->get('query'));
 
-        $results = $this->tnt->search($query, 6);
+        $results = $this->tnt->search(strtolower($query), 6);
 
         return $this->processResults($results, $request);
     }
