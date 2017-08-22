@@ -8,6 +8,9 @@ class QueryExpansion
         'house'          => 'house hugh',
         'friends'        => 'friends aniston',
         'game of'        => 'game of thrones',
+        'game of t'      => 'game of thrones',
+        'game of th'     => 'game of thrones',
+        'game of thr'    => 'game of thrones',
         'game'           => 'game of thrones',
         'breaking'       => 'breaking bad',
         'walker'         => 'walker texas',
@@ -18,7 +21,7 @@ class QueryExpansion
         'malcolm'        => 'malcolm in the middle',
         'two and a half' => 'two and a half men',
         'two and a'      => 'two and a half men',
-        'two and'        => 'two and a half men',
+        'two and'        => 'two and a half men'
     ];
 
     public static function expand($query)
